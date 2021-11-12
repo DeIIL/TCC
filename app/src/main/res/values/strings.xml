@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TCC</string>
+    <string name="btn_cd">Cadastrar-me</string>
+    <string name="img_fingerprint"></string>
+    <string name="img_dom"></string>
+    <string name="txt_cd"></string>
+    <string name="txt_ja">Já tenho conta</string>
+    <string name="txt_entrar">Entrar sem conta</string>
+    <string name="txt_direitos">Todos os direitos reservados</string>
+    <string name="txt_title_create_acc">Crie a conta</string>
+    <string name="btn_next_acc">Continuar</string>
+    <string name="hint_password">  Senha</string>
+    <string name="hint_email">  Email</string>
+    <string name="hint_cpf">  CPF</string>
+    <string name="hint_nome">  Nome</string>
+    <string name="img_arrow_create_acc"></string>
+
+</resources>
