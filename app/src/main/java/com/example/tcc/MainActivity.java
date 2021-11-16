@@ -20,25 +20,30 @@ public class MainActivity extends AppCompatActivity {
     Button btn_cd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+   protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.Theme_LoginScreen);
+        setContentView(R.layout.activity_main);
         TextView direitos = (TextView)findViewById(R.id.textView_direitos);
         TextView ja = (TextView)findViewById(R.id.textViewja);
         TextView entrar = (TextView)findViewById(R.id.textViewentrar);
         ImageView dom = (ImageView)findViewById(R.id.imageViewdom);
         ImageView fingerprint = (ImageView)findViewById(R.id.imageViewfingerprint);
-        Button btn_cd = (Button) findViewById(R.id.btn_cd);
-
-        setContentView(R.layout.activity_main);
+        btn_cd = findViewById(R.id.btn_cd);
 
 
         btn_cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(MainActivity.this, CreateAccount.class);
-                startActivity(in);
+                Intent intent = new Intent(MainActivity.this, CreateAccount.class);
+                startActivity(intent);
             }
         });
+    }
+
+    public void login(View v){
+        TextView ja = (TextView) findViewById(R.id.textViewja);
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
     }
 }

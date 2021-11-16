@@ -14,5 +14,13 @@
     <string name="hint_cpf">  CPF</string>
     <string name="hint_nome">  Nome</string>
     <string name="img_arrow_create_acc"></string>
+    <string name="txt_title_login">Entre na sua conta</string>
+    <string name="txt_title_create_acc_2nd">Quase lá</string>
+    <string name="hint_tel">Telefone</string>
+    <string name="hint_cep">CEP</string>
+    <string name="hint_uf">UF</string>
+    <string name="hint_cidade">Cidade</string>
+    <string name="hint_endereco">endereço</string>
+    <string name="hint_complemento">Complemento</string>
 
 </resources>

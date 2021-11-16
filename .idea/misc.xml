@@ -10,6 +10,10 @@
         <entry key="..\:/Users/3aetim/Desktop/TCC-20211103T165603Z-001/TCC/app/src/main/res/font/fira_sans.xml" value="0.26944444444444443" />
         <entry key="..\:/Users/3aetim/Desktop/TCC-20211103T165603Z-001/TCC/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/Users/3aetim/Desktop/TCC-20211103T165603Z-001/TCC/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/TCC/TCC/app/src/main/res/layout/activity_create_account.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/TCC/TCC/app/src/main/res/layout/activity_create_account2nd.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/TCC/TCC/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/TCC/TCC/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC_1/app/src/main/res/drawable/btn_arrow_shape.xml" value="0.3402777777777778" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC_1/app/src/main/res/drawable/buttonshape.xml" value="0.3402777777777778" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC_1/app/src/main/res/drawable/loginscreen_bg.xml" value="0.3402777777777778" />
@@ -19,7 +23,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
