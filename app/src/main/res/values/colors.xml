@@ -8,5 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="theme">#E5E5E5</color>
+    <color name="blue">#2B94F9</color>
+    <color name="menu_ham">#FAFAFA</color>
+    <color name="name_product">#302F2F</color>
+
 
 </resources>

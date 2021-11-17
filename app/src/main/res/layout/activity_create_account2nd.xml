@@ -118,9 +118,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="240dp"
         android:background="@drawable/textplain_shape"
-        android:fontFamily="@font/firasans_light"
         android:ems="10"
-        android:hint="@string/hint_cpf"
+        android:fontFamily="@font/firasans_light"
+        android:hint="@string/hint_bairro"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -192,6 +192,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable"
+        app:srcCompat="@drawable/ic_arrow_left"
         tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
