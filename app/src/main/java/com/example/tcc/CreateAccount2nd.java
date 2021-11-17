@@ -10,5 +10,6 @@ public class CreateAccount2nd extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account2nd);
+        setTheme(R.style.Theme_LoginScreen);
     }
 }
