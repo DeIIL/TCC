@@ -170,7 +170,7 @@
         android:layout_marginTop="560dp"
         android:background="@drawable/buttonshape"
         android:fontFamily="@font/firasans_medium"
-        android:text="@string/btn_next_acc"
+        android:text="@string/btn_finish_acc"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"

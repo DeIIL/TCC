@@ -9,6 +9,7 @@
     <string name="txt_direitos">Todos os direitos reservados</string>
     <string name="txt_title_create_acc">Crie a conta</string>
     <string name="btn_next_acc">Continuar</string>
+    <string name="btn_finish_acc">Criar</string>
     <string name="hint_password">  Senha</string>
     <string name="hint_email">  Email</string>
     <string name="hint_cpf">  CPF</string>
@@ -28,5 +29,6 @@
     <string name="see_more_product">Ver mais</string>
     <string name="navigation_drawer_open"> </string>
     <string name="navigation_drawer_close"> </string>
+    <string name="img_carrinho"></string>
 
 </resources>
