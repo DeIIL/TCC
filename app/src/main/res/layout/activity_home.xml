@@ -34,11 +34,11 @@
                 android:layout_height="57sp"
                 android:background="@color/blue"
                 android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
+                android:theme="@style/MyToolbarStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/ic_menu_1"
+                app:navigationIcon="@drawable/menu"
                 app:subtitleTextColor="@color/white"
                 app:title=" "
                 app:titleTextColor="@color/white" />
@@ -48,23 +48,25 @@
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-                <ImageView
-                    android:id="@+id/slide_img_brinquedo"
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingTop="10sp"
-                    android:paddingBottom="10sp"
-                    app:srcCompat="@drawable/toy_slide"
-                    tools:ignore="ImageContrastCheck" />
+                    android:layout_height="175dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_period="3000">
+
+                </com.denzcoskun.imageslider.ImageSlider>
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/theme"

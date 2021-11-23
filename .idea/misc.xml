@@ -22,10 +22,11 @@
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/drawable/btn_arrow_shape.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/drawable/buttonshape.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/drawable/loginscreen_bg.xml" value="0.3828125" />
+        <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/drawable/textplain_shape.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_create_account.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_create_account2nd.xml" value="0.33" />
-        <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_home.xml" value="0.33" />
-        <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/layout/header.xml" value="0.5" />
         <entry key="..\:/Users/gudel/AndroidStudioProjects/TCC/app/src/main/res/menu/main_menu.xml" value="0.3546875" />
