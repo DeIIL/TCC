@@ -12,21 +12,25 @@ import android.widget.TextView;
 
 public class CreateAccount extends AppCompatActivity {
 
+    public final static String EXTRA_MESSAGE_NAME = "com.example.TCC.NAME";
+    public final static String EXTRA_MESSAGE_CPF = "com.example.TCC.CPF";
+    public final static String EXTRA_MESSAGE_EMAIL = "com.example.TCC.EMAIL";
+    public final static String EXTRA_MESSAGE_PASSWORD = "com.example.TCC.PASSWORD";
+
     ImageButton btn_arrow;
     Button btn_next;
-    EditText  field_name, field_cpf, field_email, field_password;
-    TextView title_acc;
+    EditText field_name,field_cpf,field_email,field_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.Theme_LoginScreen);
         setContentView(R.layout.activity_create_account);
-//        TextView title_acc = (TextView)findViewById(R.id.title_acc);
-//        EditText field_name = (EditText)findViewById(R.id.field_name);
-//        EditText field_cpf = (EditText)findViewById(R.id.field_cpf);
-//        EditText field_email = (EditText)findViewById(R.id.field_email);
-//        EditText field_password = (EditText)findViewById(R.id.field_password);
+
+        field_name = findViewById(R.id.field_name);
+        field_cpf = findViewById(R.id.field_cpf);
+        field_email = findViewById(R.id.field_email);
+        field_password = findViewById(R.id.field_password);
         btn_next = findViewById(R.id.btn_next_create_account);
         btn_arrow = findViewById(R.id.btn_arrow);
 
@@ -34,6 +38,11 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreateAccount.this, CreateAccount2nd.class);
+                intent.putExtra("EXTRA_MESSAGE_NAME", field_name.getText().toString());
+                intent.putExtra("EXTRA_MESSAGE_CPF", field_cpf.getText().toString());
+                intent.putExtra("EXTRA_MESSAGE_EMAIL", field_email.getText().toString());
+                intent.putExtra("EXTRA_MESSAGE_PASSWORD", field_password.getText().toString());
+
                 startActivity(intent);
             }
         });
