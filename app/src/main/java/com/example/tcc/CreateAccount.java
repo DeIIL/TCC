@@ -2,7 +2,9 @@ package com.example.tcc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,8 @@ public class CreateAccount extends AppCompatActivity {
 
     ImageButton btn_arrow;
     Button btn_next;
-    EditText field_name,field_cpf,field_email,field_password;
+    EditText field_name,field_email,field_password;
+    com.santalu.maskara.widget.MaskEditText field_cpf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreateAccount.this, CreateAccount2nd.class);
+                SharedPreferences prefs = getSharedPreferences("dados_login", Context.MODE_PRIVATE);
+
                 intent.putExtra("EXTRA_MESSAGE_NAME", field_name.getText().toString());
                 intent.putExtra("EXTRA_MESSAGE_CPF", field_cpf.getText().toString());
                 intent.putExtra("EXTRA_MESSAGE_EMAIL", field_email.getText().toString());

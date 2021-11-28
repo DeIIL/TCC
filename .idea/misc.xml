@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/3aetim/AndroidStudioProjects/TCC/app/src/main/res/drawable/textplain_shape.xml" value="0.27708333333333335" />
+        <entry key="..\:/Users/3aetim/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_create_account.xml" value="0.5" />
+        <entry key="..\:/Users/3aetim/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_create_account2nd.xml" value="0.33" />
+        <entry key="..\:/Users/3aetim/AndroidStudioProjects/TCC/app/src/main/res/layout/activity_home.xml" value="0.2609375" />
         <entry key="..\:/Users/3aetim/Desktop/TCC-20211103T165603Z-001/TCC/app/src/main/res/drawable/buttonshape.xml" value="0.20972222222222223" />
         <entry key="..\:/Users/3aetim/Desktop/TCC-20211103T165603Z-001/TCC/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2569444444444444" />
         <entry key="..\:/Users/3aetim/Desktop/TCC-20211103T165603Z-001/TCC/app/src/main/res/drawable/loginscreen_bg.xml" value="0.2569444444444444" />

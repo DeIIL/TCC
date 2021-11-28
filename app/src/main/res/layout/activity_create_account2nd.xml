@@ -6,35 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".CreateAccount">
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_tel"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginBottom="400dp"
         android:background="@drawable/textplain_shape"
-        android:fontFamily="@font/firasans_light"
         android:ems="10"
+        android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_tel"
-        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.503"
-        tools:ignore="TextContrastCheck"
-        android:importantForAutofill="no" />
+        app:mask="+55 (__) _____ ____"
+        tools:ignore="TextContrastCheck">
 
-    <EditText
+    </com.santalu.maskara.widget.MaskEditText>
+
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_cpf"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginBottom="260dp"
         android:background="@drawable/textplain_shape"
-        android:fontFamily="@font/firasans_light"
         android:ems="10"
+        android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_cpf"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        app:mask="   "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,19 +59,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_UF"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="230dp"
         android:background="@drawable/textplain_shape"
         android:ems="10"
         android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_uf"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:textColor="#686868"
+        app:mask="   "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,19 +80,20 @@
         app:layout_constraintVertical_bias="0.484"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_cidade"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="130dp"
         android:background="@drawable/textplain_shape"
         android:ems="10"
         android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_cidade"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:textColor="#686868"
+        app:mask="   "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,14 +101,14 @@
         app:layout_constraintVertical_bias="0.484"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_cep"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginBottom="120dp"
         android:background="@drawable/textplain_shape"
-        android:fontFamily="@font/firasans_light"
         android:ems="10"
+        android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_cep"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
@@ -110,57 +116,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:mask="   _____-___"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_bairro"
         android:layout_width="329dp"
         android:layout_height="50dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/textplain_shape"
         android:ems="10"
         android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_bairro"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        app:mask="   "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_endereco"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginTop="280dp"
         android:background="@drawable/textplain_shape"
-        android:fontFamily="@font/firasans_light"
         android:ems="10"
+        android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_endereco"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        app:mask="   "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.511"
         tools:ignore="TextContrastCheck" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/field_complemento"
         android:layout_width="329dp"
         android:layout_height="50dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="410dp"
         android:background="@drawable/textplain_shape"
-        android:fontFamily="@font/firasans_light"
         android:ems="10"
+        android:fontFamily="@font/firasans_light"
         android:hint="@string/hint_complemento"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        app:mask="   "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
         tools:ignore="TextContrastCheck" />
 
     <android.widget.Button

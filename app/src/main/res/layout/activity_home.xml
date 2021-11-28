@@ -72,6 +72,7 @@
                 android:background="@color/theme"
                 android:orientation="vertical"
                 android:paddingLeft="15dp"
+                android:paddingTop="60dp"
                 android:paddingRight="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
