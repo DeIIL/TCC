@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -21,6 +24,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     androidx.appcompat.widget.Toolbar toolbar;
     com.denzcoskun.imageslider.ImageSlider imageSlider;
+    ImageButton btn_seemore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +36,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
         imageSlider = findViewById(R.id.image_slider);
+        btn_seemore = findViewById(R.id.btn_seemore);
 
         setSupportActionBar(toolbar);
 
+        btn_seemore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(HomeActivity.this, ProductActivity.class);
+                startActivity(in);
+            }
+        });
         /*-------------- ImageSlider ---------------------------*/
         ArrayList<SlideModel> images = new ArrayList<>();
         images.add(new SlideModel(R.drawable.dog_slider, null));
