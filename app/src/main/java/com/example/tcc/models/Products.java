@@ -1,8 +1,8 @@
-package com.example.tcc;
+package com.example.tcc.models;
 
 import java.io.Serializable;
 
-public class  ProductsGET implements Serializable {
+public class  Products implements Serializable {
 
     private int prod_id;
     private String prod_name;

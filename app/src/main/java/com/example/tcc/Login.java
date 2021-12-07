@@ -12,9 +12,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.tcc.models.User;
+import com.example.tcc.service.UserAPI;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity {
 
@@ -49,46 +54,46 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Username / Password Required", Toast.LENGTH_LONG).show();
                 } else {
                     //proceed to login
-                    login();
+                    getUser();
                 }
             }
         });
     }
 
-    public void login() {
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail(login_email.getText().toString());
-        loginRequest.setPassword(login_password.getText().toString());
+    public void getUser() {
+        String email = ((EditText)findViewById(R.id.login_email)).getText().toString();
+        String password = ((EditText)findViewById(R.id.login_password)).getText().toString();
 
-        Call<LoginResponse> loginResponseCall = ApiClient.getUserAPI().userLogin(loginRequest);
-        loginResponseCall.enqueue(new Callback<LoginResponse>() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://4d56-191-19-238-127.ngrok.io/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        UserAPI userAPI = retrofit.create(UserAPI.class);
+        Call<User> call = userAPI.getUser();
+
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (!response.isSuccessful()) {
+                    return;
+                }
 
-                if (response.isSuccessful()) {
-                    Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
-                    LoginResponse loginResponse = response.body();
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            startActivity(new Intent(Login.this, HomeActivity.class).putExtra("data", loginResponse.getEmail()));
-                        }
-                    }, 700);
-
+                if(response.body().getUser_password().equals(password) && response.body().getUser_email().equals(email)) {
+                    Intent intent = new Intent(Login.this, HomeActivity.class);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(Login.this, "Usuário ou senha incorretos", Toast.LENGTH_LONG).show();
                 }
 
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(Login.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            public void onFailure(Call<User> call, Throwable t) {
 
             }
         });
+
     }
+
 }

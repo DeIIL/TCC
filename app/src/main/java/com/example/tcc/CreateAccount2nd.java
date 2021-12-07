@@ -8,6 +8,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.tcc.models.Address;
+import com.example.tcc.models.User;
+import com.example.tcc.service.AddressAPI;
+import com.santalu.maskara.widget.MaskEditText;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class CreateAccount2nd extends AppCompatActivity {
 
     public  final static String EXTRA_MESSAGE_PHONE = "com.example.TCC.PHONE";
@@ -19,7 +30,7 @@ public class CreateAccount2nd extends AppCompatActivity {
 
     ImageButton btn_arrow;
     android.widget.Button btn_next;
-    EditText field_cpf,field_tel,field_cep,field_city,field_bairro,field_address,field_complement;
+    EditText field_cep,field_city,field_district,field_address, field_complemento, field_UF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +38,13 @@ public class CreateAccount2nd extends AppCompatActivity {
         setTheme(R.style.Theme_LoginScreen);
         setContentView(R.layout.activity_create_account2nd);
 
-        field_tel = findViewById(R.id.field_tel);
-        field_cpf = findViewById(R.id.field_cpf);
+        field_UF = findViewById(R.id.field_UF);
         field_cep = findViewById(R.id.field_cep);
-        field_city = findViewById(R.id.field_cidade);
-        field_bairro = findViewById(R.id.field_bairro);
-        field_address = findViewById(R.id.field_endereco);
-        field_complement = findViewById(R.id.field_complemento);
+        field_city = findViewById(R.id.field_city);
+        field_district = findViewById(R.id.field_district);
+        field_address = findViewById(R.id.field_address);
+        field_complemento = findViewById(R.id.field_complemento);
         String value = getIntent().getStringExtra("EXTRA_MESSAGE_CPF");
-        field_cpf.setText(value);
 
         btn_arrow = findViewById(R.id.btn_arrow);
         btn_next = findViewById(R.id.btn_next_create_account);
@@ -51,15 +60,44 @@ public class CreateAccount2nd extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(CreateAccount2nd.this, HomeActivity.class);
-                in.putExtra("EXTRA_MESSAGE_PHONE", field_tel.getText().toString());
-                in.putExtra("EXTRA_MESSAGE_CEP", field_cep.getText().toString());
-                in.putExtra("EXTRA_MESSAGE_CITY", field_city.getText().toString());
-                in.putExtra("EXTRA_MESSAGE_BAIRRO", field_bairro.getText().toString());
-                in.putExtra("EXTRA_MESSAGE_ADDRESS", field_address.getText().toString());
-                in.putExtra("EXTRA_MESSAGE_COMPLEMENT", field_complement.getText().toString());
+                createAddress();
+            }
+        });
+    }
 
+    public void createAddress() {
+        String city = ((EditText)findViewById(R.id.field_city)).getText().toString();
+        String uf = ((EditText)findViewById(R.id.field_UF)).getText().toString();
+        String district = ((EditText)findViewById(R.id.field_district)).getText().toString();
+        String public_place = ((EditText)findViewById(R.id.field_address)).getText().toString();
+        String complement = ((EditText)findViewById(R.id.field_complemento)).getText().toString();
+        String cep = ((MaskEditText)findViewById(R.id.field_cep)).getUnMasked();
+
+        Address address = new Address(cep, uf, city, district, public_place, complement);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://4d56-191-19-238-127.ngrok.io/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        AddressAPI addressAPI = retrofit.create(AddressAPI.class);
+        Call<Address> call = addressAPI.createAddress(address);
+
+
+        call.enqueue(new Callback<Address>() {
+            @Override
+            public void onResponse(Call<Address> call, Response<Address> response) {
+                if (!response.isSuccessful()) {
+                    return;
+                }
+
+                Intent in = new Intent(CreateAccount2nd.this, HomeActivity.class);
                 startActivity(in);
+            }
+
+            @Override
+            public void onFailure(Call<Address> call, Throwable t) {
+
             }
         });
     }
