@@ -2,7 +2,13 @@ package com.example.tcc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -21,8 +27,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity implements SensorEventListener {
 
+    private Sensor mySensor;
+    private SensorManager SM;
     ImageButton btn_arrow;
     Button btn_next_login;
     EditText login_email, login_password;
@@ -37,6 +45,9 @@ public class Login extends AppCompatActivity {
         btn_next_login = findViewById(R.id.btn_next_login);
         login_email = findViewById(R.id.login_email);
         login_password = findViewById(R.id.login_password);
+        SM = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mySensor = SM.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+        SM.registerListener((SensorEventListener) this,mySensor,SensorManager.SENSOR_DELAY_NORMAL);
 
         btn_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,4 +107,28 @@ public class Login extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.values[0] >= 5 || event.values[1] >= 5 || event.values[0] <= -5 || event.values[1] <= -5) {
+
+            AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Deseja apagar todos os dados salvos?");
+            dlgAlert.setPositiveButton("Apagar todos os dados",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            login_email.getText().clear();
+                            login_password.getText().clear();
+                        }
+                    })
+                    .setNegativeButton("Cancelar",null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        //Nothing here
+    }
 }
