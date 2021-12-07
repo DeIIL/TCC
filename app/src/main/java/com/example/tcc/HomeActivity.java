@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -37,14 +38,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ListAdapter.ClickedItem {
 
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     androidx.appcompat.widget.Toolbar toolbar;
     com.denzcoskun.imageslider.ImageSlider imageSlider;
-    ImageButton btn_seemore;
+    ImageButton btn_seeMore;
     TextView textViewResult;
 
     @Override
@@ -55,7 +56,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setTheme(R.style.Theme_LoginScreen);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://4b42-191-19-238-127.ngrok.io/api/")
+                .baseUrl("http://e745-191-19-238-127.ngrok.io/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -93,7 +94,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
         imageSlider = findViewById(R.id.image_slider);
-        btn_seemore = findViewById(R.id.btn_seemore);
+        btn_seeMore = findViewById(R.id.btn_seemore);
 
         setSupportActionBar(toolbar);
 
@@ -118,7 +119,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void createCard(List<ProductsGET> products) {
-        ListAdapter listAdapter = new ListAdapter(products, this);
+        ListAdapter listAdapter = new ListAdapter(products, this, null);
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -138,5 +139,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return true;
+    }
+
+    @Override
+    public void ClickedProduct(ProductsGET productsGET) {
+
+        startActivity(new Intent(this, ProductActivity.class).putExtra("data", productsGET));
     }
 }
