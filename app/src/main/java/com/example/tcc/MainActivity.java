@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         ImageView dom = (ImageView)findViewById(R.id.imageViewdom);
         ImageView fingerprint = (ImageView)findViewById(R.id.imageViewfingerprint);
         btn_cd = findViewById(R.id.btn_cd);
-
 
         btn_cd.setOnClickListener(new View.OnClickListener() {
             @Override

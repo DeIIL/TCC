@@ -35,5 +35,8 @@
     <string name="descri_product_title">Descrição</string>
     <string name="descri_product">Idade: Adulto\n Linha: Premium\n Pet: Cachorros\n Porte de Raça: Médio, Grande e Pequeno\n Tipo: Rações Secas\n Sabor: Carne e Frango\n Indicação: Alimentação diária de cães adultos\n Apresentação:\n Disponível em embalagens de 15kg e 20kg\n\n Medidas\n aproximadas: Oblongo (oval) de aproximadamente, 15,5mm de altura, 11,0mm de largura e 10,0mm de corte.\n\n Composição: Farinha de vísceras de frango, farinha\n milho integral moído, quirera de arroz gordura de frango, farelo de arroz desengordurado, hidrolisado de frango, premix vitamínico mineral, cloreto de sódio, cloreto de, parede celular de levedura, antioxidantes BHA e BHT.</string>
     <string name="btn_arrow_seemore"></string>
+    <string name="txt_title_carrinho">Carrinho</string>
+    <string name="txt_excluir">excluir</string>
+    <string name="product_name_2">Ração Golden Special</string>
 
 </resources>
