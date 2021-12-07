@@ -1,6 +1,8 @@
 package com.example.tcc;
 
-public class ProductsGET {
+import java.io.Serializable;
+
+public class  ProductsGET implements Serializable {
 
     private int prod_id;
     private String prod_name;
@@ -48,7 +50,18 @@ public class ProductsGET {
         return fk_category;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "ProductsGET{" +
+                "prod_id=" + prod_id +
+                ", prod_name='" + prod_name + '\'' +
+                ", prod_desc='" + prod_desc + '\'' +
+                ", prod_brand='" + prod_brand + '\'' +
+                ", prod_price='" + prod_price + '\'' +
+                ", prod_quant=" + prod_quant +
+                ", prod_img='" + prod_img + '\'' +
+                ", prod_min_quant=" + prod_min_quant +
+                ", fk_category=" + fk_category +
+                '}';
+    }
 }

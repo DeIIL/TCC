@@ -70,13 +70,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/firasans_medium"
-                        android:paddingTop="10dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="6dp"
                         android:text="@string/text_title_product"
                         android:textColor="@color/name_product"
                         android:textSize="16dp" />
 
                     <ImageView
-                        android:id="@+id/img_product_1"
+                        android:id="@+id/img_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="40dp"
@@ -85,7 +86,7 @@
                         app:srcCompat="@drawable/placeholder_product" />
 
                     <TextView
-                        android:id="@+id/name_product_1"
+                        android:id="@+id/name_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="300sp"
@@ -96,7 +97,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/price_product_1"
+                        android:id="@+id/price_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="360sp"
@@ -124,25 +125,32 @@
                     app:cardCornerRadius="6dp"
                     app:contentPaddingLeft="30sp">
 
+
+
                     <TextView
-                        android:id="@+id/descri_product_title"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/desc_brand"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginRight="30dp"
                         android:fontFamily="@font/firasans_medium"
-                        android:text="@string/descri_product_title"
+                        android:text="brand"
                         android:textColor="@color/name_product"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/descri_product"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="60sp"
+                        android:id="@+id/desc_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="207dp"
+                        android:layout_marginTop="50sp"
+                        android:layout_marginRight="30dp"
                         android:fontFamily="@font/firasans_medium"
-                        android:text="@string/descri_product"
+                        android:text="desc"
                         android:textColor="@color/name_product"
                         android:textSize="16sp" />
+
+
+
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

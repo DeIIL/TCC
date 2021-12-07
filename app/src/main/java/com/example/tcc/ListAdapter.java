@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -16,13 +17,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<ProductsGET> mData;
     private LayoutInflater mInflater;
     private Context context;
+    private ClickedItem  clickedItem;
 
-    public ListAdapter(List<ProductsGET> itemList, Context context) {
+
+    public ListAdapter(List<ProductsGET> itemList, Context context, ClickedItem clickedItem) {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.clickedItem = clickedItem;
 
     }
+
 
     @Override
     public int getItemCount() {return mData.size(); }
@@ -34,18 +39,32 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int positon) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int positon) {
+
+        ProductsGET productsGET = mData.get(positon);
+
         holder.bindData(mData.get(positon));
+        holder.seeMore_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedItem.ClickedProduct(productsGET);
+            }
+        });
+
     }
 
     public void setItems(List<ProductsGET> items) {mData = items;}
+
+    public interface  ClickedItem{
+        public void ClickedProduct(ProductsGET productsGET);
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iconImage;
         TextView seeMore, price, name;
         ImageButton seeMore_btn;
 
-        ViewHolder(View itemView){
+        public ViewHolder(View itemView){
             super (itemView);
             iconImage = itemView.findViewById(R.id.img_product_1);
             name = itemView.findViewById(R.id.name_product_1);
@@ -58,6 +77,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             name.setText(item.getProd_name());
             price.setText(item.getProd_price());
         }
-
     }
 }

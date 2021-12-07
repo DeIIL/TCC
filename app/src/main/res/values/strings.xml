@@ -39,5 +39,6 @@
     <string name="txt_excluir">excluir</string>
     <string name="product_name_2">Ração Golden Special</string>
     <string name="descricao">Descrição</string>
+    <string name="txt_title_desc">title</string>
 
 </resources>
