@@ -11,16 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tcc.models.Products;
+
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<ProductsGET> mData;
+    private List<Products> mData;
     private LayoutInflater mInflater;
     private Context context;
-    private ClickedItem  clickedItem;
+    private ClickedItem clickedItem;
 
 
-    public ListAdapter(List<ProductsGET> itemList, Context context, ClickedItem clickedItem) {
+    public ListAdapter(List<Products> itemList, Context context, ClickedItem clickedItem) {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
@@ -41,22 +43,22 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int positon) {
 
-        ProductsGET productsGET = mData.get(positon);
+        Products products = mData.get(positon);
 
         holder.bindData(mData.get(positon));
         holder.seeMore_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickedItem.ClickedProduct(productsGET);
+                clickedItem.ClickedProduct(products);
             }
         });
 
     }
 
-    public void setItems(List<ProductsGET> items) {mData = items;}
+    public void setItems(List<Products> items) {mData = items;}
 
-    public interface  ClickedItem{
-        public void ClickedProduct(ProductsGET productsGET);
+    public interface ClickedItem{
+        public void ClickedProduct(Products products);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -73,7 +75,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             seeMore_btn = itemView.findViewById(R.id.btn_seemore);
         }
 
-        void bindData(final ProductsGET item) {
+        void bindData(final Products item) {
             name.setText(item.getProd_name());
             price.setText(item.getProd_price());
         }

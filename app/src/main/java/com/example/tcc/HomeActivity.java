@@ -10,27 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.tcc.models.Products;
+import com.example.tcc.service.ProductsAPI;
 import com.google.android.material.navigation.NavigationView;
 
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,35 +46,34 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         setTheme(R.style.Theme_LoginScreen);
 
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://e745-191-19-238-127.ngrok.io/api/")
+                .baseUrl("http://4d56-191-19-238-127.ngrok.io/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-
         ProductsAPI productsAPI = retrofit.create(ProductsAPI.class);
 
-        Call<List<ProductsGET>> call = productsAPI.getProducts();
+        Call<List<Products>> call = productsAPI.getProducts();
 
 
-        call.enqueue(new Callback<List<ProductsGET>>() {
+        call.enqueue(new Callback<List<Products>>() {
             @Override
-            public void onResponse(Call<List<ProductsGET>> call, Response<List<ProductsGET>> response) {
+            public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
 
                 if (!response.isSuccessful()) {
-                    textViewResult.setText("Code: " + response.code());
+                    textViewResult.setText("Code: " + response);
                     return;
                 }
 
-                List<ProductsGET> products = response.body();
-
+                List<Products> products = response.body();
                 createCard(products);
 
             }
 
 
             @Override
-            public void onFailure(Call<List<ProductsGET>> call, Throwable t) {
+            public void onFailure(Call<List<Products>> call, Throwable t) {
                 textViewResult.setText(t.getMessage());
             }
         });
@@ -116,10 +106,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
+
     }
 
-    public void createCard(List<ProductsGET> products) {
-        ListAdapter listAdapter = new ListAdapter(products, this, null);
+    public void createCard(List<Products> products) {
+        ListAdapter listAdapter = new ListAdapter(products, this, this::ClickedProduct);
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -142,8 +134,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void ClickedProduct(ProductsGET productsGET) {
-
-        startActivity(new Intent(this, ProductActivity.class).putExtra("data", productsGET));
+    public void ClickedProduct(Products product) {
+        startActivity(new Intent(this, ProductActivity.class).putExtra("data", product));
     }
 }

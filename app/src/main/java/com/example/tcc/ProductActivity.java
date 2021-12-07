@@ -9,12 +9,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tcc.models.Products;
+
 public class ProductActivity extends AppCompatActivity {
 
     Button btn_carrinho;
     TextView nome, price, desc, brand;
     ImageView imgProduct;
-    ProductsGET productsGET;
+    Products productsGET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +31,23 @@ public class ProductActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent.getExtras() !=null){
-            productsGET = (ProductsGET) intent.getSerializableExtra("data");
-            String productNameData = productsGET.getProd_name();
+            productsGET = (Products) intent.getSerializableExtra("data");
+            String productName = productsGET.getProd_name();
             String productPrice = productsGET.getProd_price();
             String productDesc = productsGET.getProd_desc();
             String productBrand = productsGET.getProd_brand();
 
-            nome.setText(productNameData);
-            nome.setText(productPrice);
-            nome.setText(productDesc);
-            nome.setText(productBrand);
-
+            nome.setText(productName);
+            price.setText(productPrice);
+            desc.setText(productDesc);
+            brand.setText(productBrand);
 
         }
 
         btn_carrinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProductActivity.this, carrinho.class);
+                Intent intent = new Intent(ProductActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });
